@@ -1,2 +1,14 @@
-@import "./variables.scss";
+:root {
+  --breakpoint-mobile: 375px;
+  --breakpoint-desktop: 1440px;
+  --font-family: 'Rubik', sans-serif;
+  --font-size: 1.8rem;
+  --color-very-dark-gray: hsl(0, 0%, 17%);
+  --color-dark-gray: hsl(0, 0%, 59%);
+}
+
 @import "./base.scss";
+
+body {
+  font-family: var(--font-family);
+}

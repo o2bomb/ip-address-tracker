@@ -19,12 +19,11 @@ html {
   /* (1 rem == 10px) */
   font-size: 62.5%;
 
-  @media (max-width: 1630px) {
-    font-size: 56.25%;   // 1 rem == 9px, 9/16 = 56.25%
-  }
+  // @media (max-width: 1630px) {
+  //   font-size: 56.25%;   // 1 rem == 9px, 9/16 = 56.25%
+  // }
 }
 
 body {
   box-sizing: border-box;
-  background-color: var(--color-background);
 }
