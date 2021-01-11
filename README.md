@@ -1,5 +1,7 @@
-# Sass w/ TypeScript template
-This project contains boilerplate code for a Sass project with type checking. webpack is used for compiling and bundling all code, including imported npm packages.
+# IP Address Tracker
+A website that allows users to get detailed information on IP addresses
+
+This project was based on a challenge by [Frontend Mentor](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0)
 
 ## Running the project
 1. `yarn install` to download required packages
