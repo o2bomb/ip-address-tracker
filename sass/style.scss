@@ -36,7 +36,7 @@ body {
 
     form {
       display: flex;
-      width: 36%;
+      width: 50rem;
       margin-bottom: 5rem;
 
       .search {
@@ -78,13 +78,10 @@ body {
     .info {
       z-index: 1000;
       position: relative;
-      // bottom: 0;
-      // left: 50%;
-      // transform: translate(-50%, 50%);
 
       display: flex;
 
-      width: 70%;
+      min-width: 70%;
       padding: 3rem;
       background-color: white;
       border-radius: 1rem;
@@ -126,14 +123,14 @@ body {
   background-color: var(--color-dark-gray);
 }
 
-@media (max-width: 375px) {
+@media (max-width: 900px) {
   html {
     font-size: 56.25%;
     
     body {
       .header {
         form {
-          width: 100%;
+          width: 70%;
           margin-bottom: 2.8rem;
 
           .search {
@@ -147,7 +144,6 @@ body {
         }
 
         .info {
-          width: 100%;
           flex-direction: column;
           text-align: center;
 
@@ -169,6 +165,22 @@ body {
           .vertical-divider {
             display: none;
           }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 442px) {
+  html {
+    body {
+      .header {
+        form {
+          width: 100%;
+        }
+
+        .info {
+          width: 100%;
         }
       }
     }
