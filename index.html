@@ -18,6 +18,52 @@
     <title>IP Address Tracker</title>
   </head>
   <body>
+    <div class="header">
+      <h1 class="title">IP Address Tracker</h1>
+      <form>
+        <input
+          type="text"
+          class="search"
+          placeholder="Search for any IP address or domain"
+        />
+        <button type="submit" class="submit">
+          <svg
+            class="icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.5858 6.34317L12 4.92896L19.0711 12L12 19.0711L10.5858 17.6569L16.2427 12L10.5858 6.34317Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </form>
+      <div class="info">
+        <div class="info-item">
+          <h2 class="name">IP Address</h2>
+          <div class="value">192.212.174.101</div>
+        </div>
+        <span class="vertical-divider"></span>
+        <div class="info-item">
+          <h2 class="name">Location</h2>
+          <div class="value">Brooklyn, NY 10001</div>
+        </div>
+        <span class="vertical-divider"></span>
+        <div class="info-item">
+          <h2 class="name">Timezone</h2>
+          <div class="value">UTC-05:00</div>
+        </div>
+        <span class="vertical-divider"></span>
+        <div class="info-item">
+          <h2 class="name">ISP</h2>
+          <div class="value">SpaceX Starlink</div>
+        </div>
+      </div>
+    </div>
     <div id="map"></div>
   </body>
 </html>

@@ -1,7 +1,7 @@
 :root {
   --breakpoint-mobile: 375px;
   --breakpoint-desktop: 1440px;
-  --font-family: 'Rubik', sans-serif;
+  --font-family: "Rubik", sans-serif;
   --font-size: 1.8rem;
   --color-very-dark-gray: hsl(0, 0%, 17%);
   --color-dark-gray: hsl(0, 0%, 59%);
@@ -12,8 +12,165 @@
 body {
   font-family: var(--font-family);
 
+  .header {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 33vh;
+    padding: 3rem 2.4rem;
+
+    background: url(../public/pattern-bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .title {
+      margin-bottom: 2.7rem;
+      color: white;
+      font-size: 3rem;
+      font-weight: 500;
+    }
+
+    form {
+      display: flex;
+      width: 36%;
+      margin-bottom: 5rem;
+
+      .search {
+        flex: 1;
+        display: inline-block;
+        height: 5rem;
+        padding: 1rem 2rem;
+        border-radius: 1rem 0 0 1rem;
+        border: none;
+        box-shadow: none;
+        outline: none;
+        font-family: inherit;
+        font-size: var(--font-size);
+
+        &::placeholder {
+          color: var(--color-dark-gray);
+        }
+      }
+
+      .submit {
+        display: inline-block;
+        height: 5rem;
+        width: 5rem;
+        border: none;
+        border-radius: 0 1rem 1rem 0;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--color-very-dark-gray);
+        }
+
+        .icon {
+        }
+      }
+    }
+
+    .info {
+      z-index: 1000;
+      position: relative;
+      // bottom: 0;
+      // left: 50%;
+      // transform: translate(-50%, 50%);
+
+      display: flex;
+
+      width: 70%;
+      padding: 3rem;
+      background-color: white;
+      border-radius: 1rem;
+
+      .vertical-divider {
+        margin: auto 3rem;
+      }
+
+      &-item {
+        flex: 1;
+        height: 100%;
+
+        .name {
+          margin-bottom: 1.6rem;
+
+          color: var(--color-dark-gray);
+          font-size: 1.4rem;
+          text-transform: uppercase;
+          letter-spacing: 0.2rem;
+        }
+
+        .value {
+          color: var(--color-very-dark-gray);
+          font-size: 2.4rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  #map {
+    height: 67vh;
+  }
 }
 
-#map {
-  height: 100vh;
+.vertical-divider {
+  width: 1px;
+  height: 6rem;
+  background-color: var(--color-dark-gray);
+}
+
+@media (max-width: 375px) {
+  html {
+    font-size: 56.25%;
+    
+    body {
+      .header {
+        form {
+          width: 100%;
+          margin-bottom: 2.8rem;
+
+          .search {
+            height: 6rem;
+          }
+
+          .submit {
+            height: 6rem;
+            width: 6rem;
+          }
+        }
+
+        .info {
+          width: 100%;
+          flex-direction: column;
+          text-align: center;
+
+          &-item {
+            &:not(:last-child) {
+              margin-bottom: 3rem;
+            }
+
+            .name {
+              font-size: 1.1rem;
+              margin-bottom: 1rem;
+            }
+
+            .value {
+              font-size: 2rem;
+            }
+          }
+
+          .vertical-divider {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }
