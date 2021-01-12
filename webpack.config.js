@@ -1,39 +1,38 @@
 const path = require("path");
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
 const isDevelopment = process.env.NODE_ENV === "development";
 
 module.exports = {
   entry: "./src/index.ts",
-  devtool: 'inline-source-map',
-  plugins: [
-    new Dotenv()
-  ],
+  devtool: "inline-source-map",
+  plugins: [new Dotenv()],
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         use: "ts-loader",
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader",
-        ],
-        exclude: /node_modules/
+        use: ["style-loader", "css-loader", "sass-loader"],
+        exclude: /node_modules/,
       },
-    ]
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: ["url-loader"],
+        exclude: /node_modules/,
+      },
+    ],
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ],
+    extensions: [".tsx", ".ts", ".js"],
   },
   watchOptions: {
-    ignored: 'node_modules/**'
+    ignored: "node_modules/**",
   },
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "dist")
-  }
-}
+    path: path.resolve(__dirname, "dist"),
+  },
+};
