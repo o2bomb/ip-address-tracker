@@ -1,9 +1,13 @@
 const path = require("path");
+const Dotenv = require('dotenv-webpack');
 const isDevelopment = process.env.NODE_ENV === "development";
 
 module.exports = {
   entry: "./src/index.ts",
   devtool: 'inline-source-map',
+  plugins: [
+    new Dotenv()
+  ],
   module: {
     rules: [
       {
