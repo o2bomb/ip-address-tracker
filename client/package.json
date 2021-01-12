@@ -1,7 +1,7 @@
 {
-  "name": "ip-address-tracker",
+  "name": "ip-address-tracker-client",
   "version": "1.0.0",
-  "description": "IP Address Tracker",
+  "description": "IP Address Tracker client",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
