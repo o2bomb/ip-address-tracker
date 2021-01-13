@@ -14,7 +14,7 @@ const main = async () => {
   app.use(cors(corsOptions));
 
   // ROUTES
-  app.get("/hello", (req, res) => res.send("Hello World!"));
+  app.get("/hello", (_, res) => res.send("Hello World!"));
 
   app.get("/search/:ip", async (req, res) => {
     const ip = req.params.ip;
