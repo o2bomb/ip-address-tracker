@@ -29,14 +29,38 @@ function init() {
     e.preventDefault();
 
     const formData = new FormData(form as HTMLFormElement);
-    const ip = formData.get("search");
-    if (ip) {
+    const input = formData.get("search");
+    const ipDiv = document.getElementById("ip-address");
+    const locationDiv = document.getElementById("location");
+    const timezoneDiv = document.getElementById("timezone");
+    const ispDiv = document.getElementById("isp");
+    if (input) {
       // Set button to loading state
       submitButton.setAttribute("disabled", "");
       submitButton.classList.add("loading");
       // Perform the search
-      const uri = `${process.env.SERVER_URL}/search/${ip}`;
-      const response = await fetch(uri).then(res => res.json());
+      const uri = `${process.env.SERVER_URL}/search/${input}`;
+      const response = await fetch(uri)
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          } else {
+            throw new Error("Something went wrong");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      // Display data to user
+      try {
+        const { city, country, postalCode, region, timezone, lat, lng } = response.location;
+        ipDiv.innerText = response.ip;
+        locationDiv.innerText = `${city}, ${region} ${postalCode}`;
+        timezoneDiv.innerText = `UTC${timezone}`;
+        ispDiv.innerText = response.isp;
+      } catch (e) {
+        
+      }
       // Set button to regular state
       submitButton.classList.remove("loading");
       submitButton.removeAttribute("disabled");
