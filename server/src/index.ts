@@ -18,7 +18,7 @@ const main = async () => {
 
   app.get("/search/:ip", async (req, res) => {
     const ip = req.params.ip;
-    const uri = `https://geo.ipify.org/api/v1/?apiKey=${process.env.IPIFY_SECRET_KEY}&ip=${ip}`;
+    const uri = `https://geo.ipify.org/api/v1/?apiKey=${process.env.IPIFY_SECRET_KEY}&ipAddress=${ip}`;
     const data = await fetch(uri).then(res => res.json());
     res.send(data);
   })
