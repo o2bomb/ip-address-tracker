@@ -5,13 +5,15 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "watch": "webpack --mode development --watch",
-    "dev": "live-server"
+    "watch": "webpack --mode=development --env NODE_ENV=development --watch",
+    "dev": "live-server --open=dist",
+    "build": "webpack --mode=production --env NODE_ENV=production"
   },
   "devDependencies": {
     "@types/leaflet": "^1.5.19",
     "css-loader": "^5.0.1",
     "dotenv-webpack": "^6.0.0",
+    "html-webpack-plugin": "^4.5.1",
     "live-server": "^1.2.1",
     "sass": "^1.32.2",
     "sass-loader": "^10.1.1",
