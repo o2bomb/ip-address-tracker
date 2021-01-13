@@ -66,8 +66,22 @@ body {
         color: white;
         cursor: pointer;
 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url(../public/icon-arrow.svg);
+
         &:hover {
           background-color: var(--color-very-dark-gray);
+        }
+
+        &:disabled,
+        &[disabled] {
+          background-color: var(--color-dark-gray);
+        }
+
+        &.loading {
+          background-image: url(../public/icon-loading.svg);
+          background-color: var(--color-dark-gray);
         }
 
         .icon {

@@ -24,15 +24,25 @@ function init() {
   ).addTo(mymap);
 
   const form = document.getElementById("search-form");
+  const submitButton = document.querySelectorAll(".submit")[0];
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
     const formData = new FormData(form as HTMLFormElement);
     const ip = formData.get("search");
     if (ip) {
+      // Set button to loading state
+      submitButton.setAttribute("disabled", "");
+      submitButton.classList.add("loading");
+      // Perform the search
       const uri = `${process.env.SERVER_URL}/search/${ip}`;
       const response = await fetch(uri).then(res => res.json());
+      // Set button to regular state
+      submitButton.classList.remove("loading");
+      submitButton.removeAttribute("disabled");
       console.log(response);
     }
+
     return false;
   });
 }
