@@ -99,14 +99,14 @@ body {
       padding: 3rem;
       background-color: white;
       border-radius: 1rem;
-
+      box-shadow: 0 2rem 5rem -.3rem hsl(0, 0, 50%);
       .vertical-divider {
         margin: auto 3rem;
       }
 
       &-item {
         flex: 1;
-        height: 100%;
+        height: 10rem;
 
         .name {
           margin-bottom: 1.6rem;
