@@ -5,10 +5,12 @@ import * as L from "leaflet";
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-  const mymap = L.map("map", { zoomControl: false }).setView(
-    [51.505, -0.09],
-    13
-  );
+  const map = L.map("map", { zoomControl: false }).setView([51.505, -0.09], 13);
+  const markerIcon = L.icon({
+    iconUrl: "../public/icon-location.svg",
+    iconAnchor: [23, 56],
+  });
+  const marker = L.marker(map.getCenter(), { icon: markerIcon }).addTo(map);
 
   L.tileLayer(
     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
@@ -21,7 +23,7 @@ function init() {
       maxZoom: 18,
       id: "mapbox/streets-v11",
     }
-  ).addTo(mymap);
+  ).addTo(map);
 
   const form = document.getElementById("search-form");
   const submitButton = document.querySelectorAll(".submit")[0];
@@ -53,14 +55,24 @@ function init() {
         });
       // Display data to user
       try {
-        const { city, country, postalCode, region, timezone, lat, lng } = response.location;
+        const {
+          city,
+          country,
+          postalCode,
+          region,
+          timezone,
+          lat,
+          lng,
+        } = response.location;
         ipDiv.innerText = response.ip;
         locationDiv.innerText = `${city}, ${region} ${postalCode}`;
         timezoneDiv.innerText = `UTC${timezone}`;
         ispDiv.innerText = response.isp;
-      } catch (e) {
-        
-      }
+        // Update map with new lat, lng
+        const newLatLng = new L.LatLng(lat, lng);
+        map.setView(newLatLng, 13);
+        marker.setLatLng(newLatLng);
+      } catch (e) {}
       // Set button to regular state
       submitButton.classList.remove("loading");
       submitButton.removeAttribute("disabled");
