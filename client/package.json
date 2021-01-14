@@ -7,7 +7,7 @@
   "scripts": {
     "watch": "webpack --mode=development --env NODE_ENV=development --watch",
     "dev": "live-server --open=dist",
-    "build": "webpack --mode=production --env NODE_ENV=production"
+    "build": "webpack --mode=production --env NODE_ENV=production && cp -r dist/. ../server/build/"
   },
   "devDependencies": {
     "@types/leaflet": "^1.5.19",
