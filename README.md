@@ -9,7 +9,7 @@ Installation prerequisites:
 
 1. Clone the repo to your local machine
 2. Create a .env file in the `server` and `client` directories (see the .env.example file for an example of what the .env file looks like)
-3. In the `server` directory:
+3. In the current directory:
     1. `yarn install` to install all required libraries
     2. `yarn watch` to run the TypeScript compiler
     3. In a new terminal, `yarn dev` to start the server
